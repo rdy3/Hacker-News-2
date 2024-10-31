@@ -22,7 +22,7 @@ export function App() {
 
   useEffect(() => {
     searchNews();
-  }, [""]);
+  }, []);
 
   async function searchNews() {
     const response = await fetch(
@@ -35,7 +35,7 @@ export function App() {
 
   return (
     <div>
-      <header>Hacker News</header>
+      <header className="flex justify-around mt-4">Hacker News</header>
       <div className="flex justify-center pt-10">Monday 5 September 2024</div>
       <div className="flex justify-center pt-10 space-x-5 ">
         <button>sort by date</button>
@@ -58,7 +58,7 @@ export function App() {
           </button>
         </div>
       </div>
-      <div className="justify-left ">
+      <div className="className=" ml-6 mt-6>
         {newResponse?.hits.map((news) => {
           return <CreateNews news={news} key={news.objectID} />;
         })}

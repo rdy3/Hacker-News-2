@@ -18,7 +18,7 @@ interface CreateNewsProps {
 export function CreateNews(props: CreateNewsProps) {
   const { news } = props;
   return (
-    <div className="justify-left " key={news.objectID}>
+    <div className="ml-6 mt-6 " key={news.objectID}>
       <div className="gap-6 ">
         <Link to={`/news/${news.objectID}`}>
           {news.title || news.story_title}{" "}

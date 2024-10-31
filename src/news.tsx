@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Comments } from "./Comments";
 
 export interface CommentsResponse {
   id: number;
@@ -10,7 +11,7 @@ export interface CommentsResponse {
   text: string;
   points: number;
   parent_id: null;
-  children: CommentsResponse[];
+  children: Comment[];
 }
 [];
 
@@ -29,7 +30,6 @@ export function News() {
     const news = await response.json();
     setNewsResponse(news);
   }
-
   return (
     <div id={newsId} className="ml-6 mt-5 mr-6">
       <div className="gap-3 flex-auto ">
@@ -40,6 +40,7 @@ export function News() {
         <div className="border-b-4 pb-4 mb-4">{newsResponse?.text}</div>
       </div>
       <div className="text-3xl font-semibold pb-5">Comments</div>
+      <Comments comments={newsResponse?.children || []} />
     </div>
   );
 }
